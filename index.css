@@ -11,7 +11,8 @@
   --l-15: hsl(var(--hue), var(--sat), 15%);
   --l-0: hsl(var(--hue), var(--sat), 0%);
   --content-padding: 2vw;
-  --list-gap: 12px;
+  --list-gap-m: 6px;
+  --list-gap-l: 12px;
   --shadow: 0px 4px 8px 0px var(--l-87);
   --shadow-strong: 0px 8px 8px 0px var(--l-87);
   --radius: 4px;
@@ -28,13 +29,19 @@ body {
 }
 
 /* aside layout */
-body:has(>aside){
-  display: grid;
-  column-gap: 48px;
-  grid-template: 'header header' var(--header-height)
-                  'main aside'
-                  'footer footer'
-                  /3fr 1fr;
+@media screen and (min-width: 897px) {
+  body:has(>aside){
+    display: grid;
+    column-gap: 48px;
+    grid-template: 'header header' var(--header-height)
+                    'main aside'
+                    'footer footer'
+                    /3fr 1fr;
+  }
+  aside > nav {
+    position: sticky;
+    top: var(--header-height);
+  }
 }
 body > aside {
   grid-area: aside;
@@ -52,35 +59,37 @@ aside img, aside picture {
   max-height: 480px;
   object-fit: contain;
 }
-aside > nav {
-  position: sticky;
-  top: var(--header-height);
-}
 aside > nav > ol {
   flex-direction: column;
-  gap: var(--list-gap);
+  gap: var(--list-gap-l);
 }
 aside > nav > ol > li:after {
   content: none;
 }
 
 /* nav layout */
-body:has(>nav){
-  display: grid;
-  column-gap: 48px;
-  grid-template: 'header header' var(--header-height)
-                  'nav main'
-                  'footer footer'
-                  /1fr 3fr;
-}
 body > nav {
-  grid-area: nav;
-  position: sticky;
-  top: var(--header-height);
-  z-index: 100;
   background: var(--l-99);
   padding: 12px;
-  border-right: 1px solid var(--l-93);
+}
+@media screen and (min-width: 897px) {
+  body:has(>nav){
+    display: grid;
+    column-gap: 48px;
+    grid-template: 'header header' var(--header-height)
+                    'nav main'
+                    'footer footer'
+                    /1fr 3fr;
+  }
+  body > nav {
+    grid-area: nav;
+    position: sticky;
+    top: var(--header-height);
+    z-index: 100;
+    background: var(--l-99);
+    padding: 12px;
+    border-right: 1px solid var(--l-93);
+  }
 }
 
 a:hover {
@@ -101,13 +110,22 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--list-gap);
-  padding: 0 18px;
+  gap: var(--list-gap-m);
   height: var(--header-height);
   z-index: 300;
+  padding: 0;
+}
+@media screen and (min-width: 897px){
+  header {
+    gap: var(--list-gap-l);
+    padding: 0 18px;
+  }
 }
 
 /* logo */
+header > a:has(>img){
+  flex-shrink: 0;
+}
 header > a:has(>img):hover, footer > a:has(>img):hover{
   opacity: 0.8;
 }
@@ -122,15 +140,23 @@ header > a > img, footer > a > img {
 /* menu */
 header > ul {
   display: flex;
-  gap: var(--list-gap);
+  flex-wrap: nowrap;
+  gap: var(--list-gap-m);
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: auto;
+}
+@media screen and (min-width: 897px) {
+  header > ul {
+    gap: var(--list-gap-l);
+  }
 }
 header > ul > li {
   background: var(--l-96);
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 header > ul > li > * {
   display: block;
@@ -175,9 +201,15 @@ main > section {
 /* main visual */
 main > section:first-of-type:has(>img) {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+@media screen and (min-width: 897px) {
+  main > section:first-of-type:has(>img) {
+    flex-direction: row;
+  }
 }
 
 /* subtitle */
@@ -191,14 +223,16 @@ h1 > span, h2 > span, h3 > span, h4 > span, h5 > span {
 nav > ol {
   display: flex;
   margin: 0;
-  gap: var(--list-gap);
+  gap: var(--list-gap-l);
   padding: 6px var(--content-padding);
   background: var(--l-96);
+  overflow-x: auto;
 }
 nav > ol > li {
   display: flex;
   align-items: center;
   gap: 1em;
+  flex-shrink: 0;
 }
 nav > ol > li:after {
   content: '>';
@@ -212,7 +246,7 @@ nav > ol > li:last-of-type:after{
 section > ol {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px var(--list-gap);
+  gap: 24px var(--list-gap-l);
   list-style: none;
   padding: 0;
 }
@@ -221,7 +255,7 @@ section > ol {
 section > ol + nav {
   display: flex;
   margin: 0;
-  gap: var(--list-gap);
+  gap: var(--list-gap-l);
 } 
 section > ol + nav > ol {
   background: none;
@@ -373,7 +407,7 @@ summary + * {
 /* form */
 form {
   display: grid;
-  gap: var(--list-gap);
+  gap: var(--list-gap-l);
 }
 form > label {
   display: grid;
@@ -424,12 +458,21 @@ picture > img {
 main > article {
   width: min(100%, 640px);
   margin: 0 auto 40px;
+  padding: 0 12px;
+}
+@media screen and (min-width: 897px) {
+  main > article {
+    padding: 0;
+  }
 }
 article > time {
   color: var(--l-77);
 }
 article h2 {
   border-bottom: 1px solid var(--l-87);
+}
+article * {
+  max-width: 100%;
 }
 
 /* quote */
@@ -474,6 +517,7 @@ pre:has(> code) {
   color: var(--l-1);
 }
 pre:has(> code) code {
+  display: block;
   background: var(--l-0);
   color: var(--l-1);
 }
@@ -522,15 +566,25 @@ tbody td {
 /* profile */
 address {
   display: grid;
-  grid-template: 'img text' 60px
-                  'name text'
-                  '. text'
-                  '. link'
-                  /120px 1fr;
-  column-gap: 24px;
+  grid-template: 'img' 60px
+                  'name'
+                  'text'
+                  'link'
+                  /1fr;
   padding: 24px 12px;
   border: 1px solid var(--l-96);
   border-radius: var(--radius);
+}
+@media screen and (min-width: 897px) {
+  address {
+    grid-template: 'img text' 60px
+                    'name text'
+                    '. text'
+                    '. link'
+                    /120px 1fr;
+    column-gap: 24px;
+    padding: 24px 12px;
+  }
 }
 address > img {
   grid-area: img;
@@ -554,7 +608,7 @@ address > nav {
   grid-area: link;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px var(--list-gap);
+  gap: 6px var(--list-gap-l);
   padding: 12px 0;
 }
 
@@ -605,16 +659,22 @@ footer {
   position: relative;
   z-index: 200;
   background: var(--l-67);
-  display: grid;
-  padding: 48px 18px 0;
-  grid-template: 'logo list' 80px
-                  'strong list'
-                  '. small'
-                  / 240px 1fr;
-  column-gap: 120px;
+  padding: 30px 12px 0;
+}
+@media screen and (min-width: 897px) {
+  footer {
+    display: grid;
+    padding: 48px 18px 0;
+    grid-template: 'logo list' 80px
+                    'strong list'
+                    '. small'
+                    / 240px 1fr;
+    column-gap: 120px;
+  }
 }
 footer > a:has(img) {
   grid-area: logo;
+  display: block;
   width: 180px;
 }
 footer > strong {
@@ -624,10 +684,16 @@ footer > strong {
 footer > ul {
   grid-area: list;
   display: flex;
-  gap: 48px;
+  flex-wrap: nowrap;
+  gap: 24px 48px;
   list-style: none;
-  margin: 0;
+  margin: 24px 0 0 0;
   padding: 0;
+}
+@media screen and (min-width: 897px) {
+  footer > ul {
+    margin: 0;
+  }
 }
 footer > ul > li > ul {
   list-style: none;
