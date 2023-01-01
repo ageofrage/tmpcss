@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>solidHtml</title>
+  </head>
+  <body>
+    <header>
+      <a href="/"
+        ><img
+          src="https://via.placeholder.com/180x60"
+          alt="logo"
+          width="180"
+          height="60"
+      /></a>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/list.html">Sample ListPage</a></li>
+        <li><a href="/detail.html">Sample DetailPage</a></li>
+        <li>
+          <button
+            type="button"
+            onclick="alert(`Please customize onClickEvent by yourself.`)"
+          >
+            button
+          </button>
+        </li>
+      </ul>
+    </header>
+    <dialog open>
+      <form method="dialog">
+        <p>
+          <strong>this is dialog</strong>
+          <span>Do you want to close?</span>
+          <button value="close">close</button>
+        </p>
+      </form>
+    </dialog>
+    <main>
+      <nav>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/list.html">list</a></li>
+          <li>details</li>
+        </ol>
+      </nav>
+      <article>
+        <h1>Article title</h1>
+        <time datetime="2018-07-07">2018-07-07</time>
+        <picture>
+          <source
+            srcset="
+              https://doodleipsum.com/700/outline?i=c40464c27eb96db99e50cd17f2ec4d0d
+            "
+            media="(min-width: 867px)"
+          />
+          <img
+            src="https://doodleipsum.com/700/outline?i=b9394e5dbf605f5eef5ede6fe707ad8c"
+          />
+        </picture>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet <b>[bold] consectetur</b> adipisicing
+            elit. <strong>[strong] Nulla fugiat in sed</strong> veritatis natus,
+            reprehenderit quibusdam harum impedit quo dignissimos corporis
+            <small>[small] earum ut labore culpa</small> facilis consequatur
+            accusamus obcaecati dolor!<br /><i>[italic] Lorem ipsum dolor</i>
+            sit amet consectetur adipisicing elit. Nulla fugiat in sed veritatis
+            natus, reprehenderit quibusdam harum impedit quo dignissimos
+            corporis earum ut labore culpa facilis consequatur accusamus
+            obcaecati dolor!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            fugiat in sed veritatis natus, reprehenderit quibusdam harum impedit
+            quo dignissimos corporis earum ut labore culpa facilis consequatur
+            accusamus obcaecati dolor!Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Nulla fugiat in sed veritatis natus, reprehenderit
+            quibusdam harum impedit quo dignissimos corporis earum ut labore
+            culpa facilis consequatur accusamus obcaecati dolor!Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Nulla fugiat in sed
+            veritatis natus, reprehenderit quibusdam harum impedit quo
+            dignissimos corporis earum ut labore culpa facilis consequatur
+            accusamus obcaecati dolor!
+          </p>
+          <h2>h2 title</h2>
+          <h3>h3 title</h3>
+          <h4>h4 title</h4>
+          <h5>h5 title</h5>
+          <blockquote>
+            this is quote this is quote this is quote quote this is quote quote
+            this is quote quote this is quote
+          </blockquote>
+          <pre>
+            <code>
+            const a = 'b';
+            if(a === 'b'){
+              console.log('multi lines');
+            };
+            </code>
+          </pre>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<code
+            >console.log('single line');</code
+          >
+          Assumenda iusto corporis dignissimos reprehenderit! Ratione rem
+          perferendis impedit doloremque. Aut neque saepe voluptatibus quibusdam
+          eligendi et minima autem perspiciatis, assumenda amet.
+          <ol>
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+            <li>
+              <ol>
+                <li>inner list 1</li>
+                <li>inner list 2</li>
+                <li>inner list 3</li>
+              </ol>
+            </li>
+          </ol>
+          <img
+            src="https://doodleipsum.com/700/hand-drawn?i=9b12378de637a8663721fab14cdb9dbe"
+          />
+          <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>
+              <ul>
+                <li>inner list</li>
+                <li>inner list</li>
+                <li>inner list</li>
+              </ul>
+            </li>
+          </ul>
+
+          <table>
+            <caption>
+              Council budget (in £) 2018
+            </caption>
+            <thead>
+              <tr>
+                <th>Items</th>
+                <th scope="col">Expenditure</th>
+                <th scope="col">Expenditure</th>
+                <th scope="col">Expenditure</th>
+                <th scope="col">Expenditure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Donuts</th>
+                <td>3,000</td>
+                <td>3,000</td>
+                <td>3,000</td>
+                <td>3,000</td>
+              </tr>
+              <tr>
+                <th scope="row">Stationery</th>
+                <td>18,000</td>
+                <td>18,000</td>
+                <td>18,000</td>
+                <td>18,000</td>
+              </tr>
+              <tr>
+                <th scope="row">Stationery</th>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Stationery</th>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+                <td>a</td>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                  atque? Officia quidem, consectetur quibusdam modi ad
+                  repellendus rem? Exercitationem quam illo perferendis placeat,
+                  aliquam blanditiis optio dolores numquam esse sit.
+                </td>
+                <td>b</td>
+              </tr>
+              <tr>
+                <th scope="row">Stationery</th>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+              </tr>
+            </tbody>
+          </table>
+          <section>
+            <ol>
+              <li>
+                <a href="">
+                  <article>
+                    <img
+                      src="https://picsum.photos/400/200"
+                      width="240"
+                      height="135"
+                    />
+                    <div>
+                      <h5>Long long long long long card title</h5>
+                      <p>
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of
+                        Letraset sheets containing Lorem Ipsum passages, and
+                        more recently with desktop publishing software like
+                        Aldus PageMaker including versions of Lorem Ipsum.
+                      </p>
+                      <time datetime="2018-07-07">2018-07-07</time>
+                    </div>
+                  </article>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <article>
+                    <img
+                      src="https://picsum.photos/400/200"
+                      width="240"
+                      height="135"
+                    />
+                    <div>
+                      <h5>Card title</h5>
+                      <p>short text</p>
+                      <time datetime="2018-07-07">2018-07-07</time>
+                    </div>
+                  </article>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <article>
+                    <img
+                      src="https://picsum.photos/400/200"
+                      width="240"
+                      height="135"
+                    />
+                    <div>
+                      <h5>Card title</h5>
+                      <p>short text</p>
+                      <time datetime="2018-07-07">2018-07-07</time>
+                    </div>
+                  </article>
+                </a>
+              </li>
+            </ol>
+          </section>
+          <address>
+            <img
+              src="https://doodleipsum.com/700/avatar-2?i=cd32fceb8b07fe9274e7992692c64f45"
+              alt="me"
+            />
+            <h5>my name is</h5>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptate laudantium, excepturi quis itaque, perferendis
+              dignissimos soluta officia sed quae temporibus earum ut
+              repellendus reprehenderit consequuntur. In voluptates nesciunt
+              adipisci minima.
+            </p>
+            <nav>
+              <a href="">my email</a>
+              <a href="">my phone number</a>
+              <a href="">my website</a>
+              <a href="">SNS account</a>
+              <a href="">SNS account2</a>
+              <a href="">SNS account3</a>
+            </nav>
+          </address>
+        </div>
+      </article>
+    </main>
+    <aside>
+      <a href=""
+        ><img
+          src="https://via.placeholder.com/480x480"
+          alt="logo"
+          width="480"
+          height="480"
+      /></a>
+      <nav>
+        <ol>
+          <li><a href="">#link</a></li>
+          <li><a href="">#link</a></li>
+          <li><a href="">#link</a></li>
+          <li><a href="">#link</a></li>
+        </ol>
+      </nav>
+    </aside>
+    <footer>
+      <a href="">
+        <img
+          src="https://via.placeholder.com/180x60"
+          alt="logo"
+          width="180"
+          height="60"
+        />
+      </a>
+      <strong>Scaffold for WIP pages.</strong>
+      <ul>
+        <li>
+          <ul>
+            <li>link1</li>
+            <li><a href="">linkA</a></li>
+            <li><a href="">linkB</a></li>
+            <li><a href="">linkC</a></li>
+            <li><a href="">linkD</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>link2</li>
+            <li><a href="">linkA</a></li>
+            <li><a href="">linkB</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>link3</li>
+            <li><a href="">linkA</a></li>
+            <li><a href="">linkB</a></li>
+            <li><a href="">linkC</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>link4</li>
+            <li><a href="">linkA</a></li>
+          </ul>
+        </li>
+      </ul>
+      <small>&copy; ageofrage</small>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,649 @@
+@import url('./sanitize.css');
+
+:root {
+  --hue: 0;
+  --sat: 0%;
+  --l-1: hsl(var(--hue), var(--sat), 100%);
+  --l-99: hsl(var(--hue), var(--sat), 99%);
+  --l-96: hsl(var(--hue), var(--sat), 96%);
+  --l-93: hsl(var(--hue), var(--sat), 93%);
+  --l-87: hsl(var(--hue), var(--sat), 87%);
+  --l-77: hsl(var(--hue), var(--sat), 77%);
+  --l-67: hsl(var(--hue), var(--sat), 67%);
+  --l-15: hsl(var(--hue), var(--sat), 15%);
+  --l-0: hsl(var(--hue), var(--sat), 0%);
+  --content-padding: 2vw;
+  --list-gap: 12px;
+  --shadow: 0px 4px 8px 0px var(--l-87);
+  --shadow-strong: 0px 8px 8px 0px var(--l-87);
+  --radius: 4px;
+  --header-height: 60px;
+}
+
+body {
+  background: var(--l-1);
+  grid-template: 'header' var(--header-height)
+  'main'
+  'footer'
+  /1fr;
+  min-height: 100vh;
+}
+
+/* aside layout */
+body:has(>aside){
+  display: grid;
+  column-gap: 48px;
+  grid-template: 'header header' var(--header-height)
+                  'main aside'
+                  'footer footer'
+                  /3fr 1fr;
+}
+body > aside {
+  grid-area: aside;
+  background: var(--l-99);
+  padding: 12px;
+  border-left: 1px solid var(--l-93);
+}
+body > aside > * {
+  display: block;
+  padding: 6px 0;
+}
+aside img, aside picture {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+}
+aside > nav {
+  position: sticky;
+  top: var(--header-height);
+}
+aside > nav > ol {
+  flex-direction: column;
+  gap: var(--list-gap);
+}
+aside > nav > ol > li:after {
+  content: none;
+}
+
+/* nav layout */
+body:has(>nav){
+  display: grid;
+  column-gap: 48px;
+  grid-template: 'header header' var(--header-height)
+                  'nav main'
+                  'footer footer'
+                  /1fr 3fr;
+}
+body > nav {
+  grid-area: nav;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100;
+  background: var(--l-99);
+  padding: 12px;
+  border-right: 1px solid var(--l-93);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+label, input[type="checkbox"], input[type="radio"], input[type="range"], input[type="date"], button, select, summary {
+  cursor: pointer;
+}
+
+/* header */
+header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  background: var(--l-1);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--list-gap);
+  padding: 0 18px;
+  height: var(--header-height);
+  z-index: 300;
+}
+
+/* logo */
+header > a:has(>img):hover, footer > a:has(>img):hover{
+  opacity: 0.8;
+}
+header > a > img, footer > a > img {
+  display: block;
+  aspect-ratio: 3/1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* menu */
+header > ul {
+  display: flex;
+  gap: var(--list-gap);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+header > ul > li {
+  background: var(--l-96);
+  display: flex;
+  align-items: center;
+}
+header > ul > li > * {
+  display: block;
+  padding: 12px;
+  height: 100%;
+  border: 1px solid var(--l-93)
+}
+
+/* header menu button */
+header > ul > li > button {
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+header > ul > li > button:after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-width: 4px;
+  border-style: solid;
+  border-color: var(--l-0) transparent transparent transparent;
+  transition: all 0.3s ease;
+  transform: translateY(2px);
+}
+header > ul > li > button:hover:after {
+  transform: rotateX(180deg) translateY(2px);
+}
+
+main {
+  grid-area: main;
+}
+
+/* main section */
+main > section {
+  padding: 40px var(--content-padding);
+}
+
+/* main visual */
+main > section:first-of-type:has(>img) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* subtitle */
+h1 > span, h2 > span, h3 > span, h4 > span, h5 > span {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.6em;
+}
+
+/* breadcrumbs */
+nav > ol {
+  display: flex;
+  margin: 0;
+  gap: var(--list-gap);
+  padding: 6px var(--content-padding);
+  background: var(--l-96);
+}
+nav > ol > li {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+nav > ol > li:after {
+  content: '>';
+  font-size: 0.6em;
+}
+nav > ol > li:last-of-type:after{
+  content: none;
+}
+
+/* list page */
+section > ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px var(--list-gap);
+  list-style: none;
+  padding: 0;
+}
+
+/* pagination */
+section > ol + nav {
+  display: flex;
+  margin: 0;
+  gap: var(--list-gap);
+} 
+section > ol + nav > ol {
+  background: none;
+  padding: 0;
+} 
+section > ol + nav > ol > li {
+  width: 42px;
+  height: 42px;
+  background: var(--l-96);
+  border: 2px solid var(--l-0);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section > ol + nav > ol > li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section > ol + nav > ol > li:after {
+  content: none;
+}
+
+/* card */
+li > a:has(>article) {
+  display: block;
+  box-shadow: var(--shadow);
+  color: var(--l-0);
+  text-decoration: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 100%;
+  min-height: 312px;
+  transition: all 0.1s ease-in;
+}
+li > a:has(>article):hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-strong);
+  opacity: 0.90;
+}
+li > a > article > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+li > a > article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+li > a > article > div {
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+li > a > article > div > h5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin: 0;
+}
+li > a > article > div > p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  margin: 0;
+}
+li > a > article > div > time {
+  font-size: 10px;
+  margin-top: auto;
+  margin-left: auto;
+  color: var(--l-77);
+}
+
+/* link | submit button */
+a:has(>span), button[type='submit'] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-width: 180px;
+  padding: 12px 24px;
+  height: 48px;
+  border-radius: 24px;
+  border: 2px solid var(--l-0);
+  background: var(--l-96);
+  transition: all 0.1s ease;
+}
+a:has(>span):hover, button[type='submit']:hover {
+  background: var(--l-99);
+}
+
+/* accordion */
+details[open] summary::after {
+  transform: translateX(-4px) translateY(-2px) rotateZ(90deg);
+}
+summary {
+  height: 72px;
+  padding: 18px 18px 18px 48px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  inset-block-start: 1em;
+  background: var(--l-96);
+}
+summary:before{
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid var(--l-67);
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+}
+summary:after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--l-67);
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translateY(-50%);
+  transition: all 0.1s ease;
+}
+summary + * {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 42px 18px 18px 48px;
+  background: var(--l-99);
+}
+
+/* form */
+form {
+  display: grid;
+  gap: var(--list-gap);
+}
+form > label {
+  display: grid;
+  gap: 4px;
+}
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 6px;
+  padding: 0;
+  border: none;
+}
+fieldset > label {
+  display: block;
+  font-size: 0.9em;
+  color: var(--l-15);
+}
+input, select, textarea {
+  padding: 6px;
+  background: var(--l-96);
+  border-width: 2px;
+  border-color: transparent transparent var(--l-77);
+}
+textarea {
+  min-height: 120px;
+}
+input:invalid {
+  background: pink;
+}
+label:has(input:invalid):after {
+  content: 'invalid';
+  display: block;
+  color: red;
+}
+input[type='search']{
+  position: relative;
+}
+
+/* full image */
+picture > img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1.91;
+}
+
+/* article */
+main > article {
+  width: min(100%, 640px);
+  margin: 0 auto 40px;
+}
+article > time {
+  color: var(--l-77);
+}
+article h2 {
+  border-bottom: 1px solid var(--l-87);
+}
+
+/* quote */
+blockquote {
+  background: var(--l-96);
+  margin: 0;
+  border: 1px solid var(--l-87);
+  position: relative;
+  /* same as default margin */
+  padding: 40px 16px; 
+}
+blockquote:before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  padding: 6px;
+  line-height: 1;
+  position: absolute;
+  color: var(--l-67);
+  content: "“";
+  top: 0;
+  left: 0;
+}
+blockquote:after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  padding: 6px;
+  line-height: 1;
+  position: absolute;
+  color: var(--l-67);
+  content: "”";
+  bottom: 0;
+  right: 0;
+}
+
+/* code block */
+pre:has(> code) {
+  background: var(--l-0);
+  color: var(--l-1);
+}
+pre:has(> code) code {
+  background: var(--l-0);
+  color: var(--l-1);
+}
+code {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  background: var(--l-93);
+  color: red;
+}
+
+/* table */
+table {
+  display: block;
+  overflow: auto;
+  border: 1px solid var(--l-96);
+  aspect-ratio: 3/4;
+}
+caption {
+  padding: 12px 0;
+}
+thead {
+  background: var(--l-87);
+  height: 3em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+thead th:first-of-type {
+  min-width: 8em;
+}
+tbody th {
+  position: sticky;
+  left: 0;
+  border-right: 1px dotted var(--l-87);
+  z-index: 90;
+  background: var(--l-1);
+}
+tbody > tr:nth-of-type(even), tbody > tr:nth-of-type(even) th{
+  background: var(--l-96);
+}
+tbody td {
+  padding: 6px;
+  min-width: 10em;
+}
+
+/* profile */
+address {
+  display: grid;
+  grid-template: 'img text' 60px
+                  'name text'
+                  '. text'
+                  '. link'
+                  /120px 1fr;
+  column-gap: 24px;
+  padding: 24px 12px;
+  border: 1px solid var(--l-96);
+  border-radius: var(--radius);
+}
+address > img {
+  grid-area: img;
+  display: block;
+  justify-self: center;
+  object-fit: contain;
+  height: 100%;
+  aspect-ratio: 1;
+}
+address > h4, address > h5, address > strong {
+  grid-area: name;
+  display: block;
+  justify-self: center;
+  margin: 0;
+}
+address > p {
+  grid-area: text;
+  margin: 0;
+}
+address > nav {
+  grid-area: link;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px var(--list-gap);
+  padding: 12px 0;
+}
+
+/* modal */
+dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+dialog > form {
+  background: var(--l-1);
+  width: min(100%, 640px);
+  height: min(100%, 640px);
+  padding: 24px;
+  margin: auto;
+}
+dialog > form > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+dialog > form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-width: 180px;
+  padding: 12px 24px;
+  height: 48px;
+  border-radius: 24px;
+  border: 2px solid var(--l-0);
+  background: var(--l-96);
+  transition: all 0.1s ease;
+}
+
+/* footer */
+footer {
+  grid-area: footer;
+  position: relative;
+  z-index: 200;
+  background: var(--l-67);
+  display: grid;
+  padding: 48px 18px 0;
+  grid-template: 'logo list' 80px
+                  'strong list'
+                  '. small'
+                  / 240px 1fr;
+  column-gap: 120px;
+}
+footer > a:has(img) {
+  grid-area: logo;
+  width: 180px;
+}
+footer > strong {
+  grid-area: strong;
+  font-weight: normal;
+}
+footer > ul {
+  grid-area: list;
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+footer > ul > li > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+footer > ul > li > ul > li:first-of-type {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 1.06em;
+}
+footer > small {
+  grid-area: small;
+  text-align: right;
+  display: block;
+  padding: 6px 0;
+}
