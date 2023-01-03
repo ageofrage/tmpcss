@@ -456,7 +456,7 @@ picture > img {
 
 /* article */
 main > article {
-  width: min(100%, 640px);
+  max-width: 640px;
   margin: 0 auto 40px;
   padding: 0 12px;
 }
@@ -515,6 +515,7 @@ blockquote:after {
 pre:has(> code) {
   background: var(--l-0);
   color: var(--l-1);
+  overflow-x: scroll;
 }
 pre:has(> code) code {
   display: block;
