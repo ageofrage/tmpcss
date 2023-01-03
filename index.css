@@ -595,7 +595,7 @@ address > img {
   height: 100%;
   aspect-ratio: 1;
 }
-address > h4, address > h5, address > strong {
+address > h4, address > strong {
   grid-area: name;
   display: block;
   justify-self: center;
@@ -605,7 +605,7 @@ address > p {
   grid-area: text;
   margin: 0;
 }
-address > nav {
+address > ul {
   grid-area: link;
   display: flex;
   flex-wrap: wrap;
