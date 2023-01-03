@@ -8,7 +8,7 @@ https://ageofrage.github.io/tmpcss/
 
 ## CDN
 
-https://unpkg.com/@ageofrage/tmpcss@1.0.1/index.css  
+https://unpkg.com/@ageofrage/tmpcss@1.0.2/index.css  
 please use with [sanitize.css](https://github.com/csstools/sanitize.css)
 
 ## w3c validation
