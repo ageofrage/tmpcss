@@ -611,6 +611,7 @@ address > ul {
   flex-wrap: wrap;
   gap: 6px var(--list-gap-l);
   padding: 12px 0;
+  list-style: none;
 }
 
 /* modal */
