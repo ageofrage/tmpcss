@@ -1,0 +1,15 @@
+{
+  "name": "@ageofrage/tmpcss",
+  "version": "1.0.0",
+  "description": "Scaffold for WIP pages. You don't need write CSS or JS, just only HTML.",
+  "main": "index.css",
+  "repository": "git@github.com:ageofrage/tmpcss.git",
+  "keywords": [
+    "no class css",
+    "classless css",
+    "temporary css",
+    "Scaffold css"
+  ],
+  "author": "ageofrage",
+  "license": "MIT"
+}
